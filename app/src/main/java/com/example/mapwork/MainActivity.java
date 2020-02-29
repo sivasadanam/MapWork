@@ -18,17 +18,16 @@ public class MainActivity extends AppCompatActivity {
 
         bt = (Button) findViewById(R.id.button);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        MapFragment fragment = new MapFragment();
-        fragmentTransaction.add(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
+
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivity(i);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                MapFragment fragment = new MapFragment();
+                fragmentTransaction.add(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
             }
         });
 
