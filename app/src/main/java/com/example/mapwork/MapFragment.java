@@ -245,57 +245,22 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
     }
     @Override
     public boolean onMarkerClick(Marker marker) {
-        // Toast.makeText(getContext(),marker.getTitle(),Toast.LENGTH_LONG).show();
-
-        // showCustomDialog(Integer.valueOf(marker.toString()));
 
 
-        if (marker.getTitle().equals(museumsid[0]))
-        {
 
-//            try {
-                showCustomDialog();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-            //handle click here
-            Toast.makeText(getContext(),museumsid[0],Toast.LENGTH_LONG).show();
+        int i=0;            //setDefault
+                            //len is the number of museums ploted
+        while(len!=i){
+            if(marker.getTitle().equals(museumsid[i]))
+                showCustomDialog(i);
+            Toast.makeText(getContext(),museumsid[i],Toast.LENGTH_LONG).show();
+           i++;
         }
-
-        if (marker.getTitle().equals(museumsid[1]))
-        {
-            //handle click here
-//            try {
-                showCustomDialog();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-            Toast.makeText(getContext(),museumsid[1].toString(),Toast.LENGTH_LONG).show();
-        }
-        if (marker.getTitle().equals(museumsid[2]))
-        {
-            //handle click here
-//            try {
-               showCustomDialog();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-            Toast.makeText(getContext(),museumsid[2].toString(),Toast.LENGTH_LONG).show();
-        }
-        if (marker.getTitle().equals(museumsid[3]))
-        {
-            //handle click here
-//            try {
-              showCustomDialog();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-            Toast.makeText(getContext(),museumsid[3].toString(),Toast.LENGTH_LONG).show();
-        }
-
         return false;
     }
-    public void showCustomDialog(){
+
+
+    public void showCustomDialog(int i){
 //
 //        View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.my_dialog, viewGroup, false);
 //        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -303,8 +268,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
 //        TextView tvv = dialogView.findViewById(R.id.textView3);
 //       // ImageView image2 =(ImageView) dialogView.findViewById(R.id.imageView);
 //        tvv.setText("GGGGG");
-
-
+        postGet();
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.my_dialog, viewGroup, false);
         builder.setView(dialogView);
